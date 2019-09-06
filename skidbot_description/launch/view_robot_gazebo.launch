@@ -1,0 +1,40 @@
+<launch>
+
+  <include file="$(find skidbot_description)/launch/upload_model.launch" />
+
+  <!-- <rosparam file="$(find skidbot_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/> -->
+  
+  <rosparam command="load" file="$(find skidbot_control)/config/control.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="skidbot_joint_publisher skidbot_velocity_controller" />
+
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+  <rosparam command="load" file="$(find skidbot_control)/config/robot_localization.yaml" />
+  </node>
+
+  <!--<include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+
+  </include> -->
+  
+  <include file="$(find skidbot_gazebo)/launch/playpen.launch" />
+  
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -z 0.1 -model skidbot" />
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
+    <param name="publish_frequency" type="double" value="50.0" />
+  </node>
+
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find skidbot_description)/rviz/robot_1.rviz" />
+  
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping">
+    <param name="base_frame" value="base_link"/>
+    <param name="odom_frame" value="odom" />
+    <param name="delta" value="0.1" />
+  </node>
+
+</launch>

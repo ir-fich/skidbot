@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package>
+  <name>skidbot_base</name>
+  <version>0.0.1</version>
+  <description>The skidbot_base package. Based on the work of Emiliano Borghi (https://github.com/eborghi10/my_ROS_mobile_robot)</description>
+
+  <maintainer email="sanchez.guido@gmail.com">Guido Sanchez</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>controller_manager</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>roslaunch</build_depend>
+  <build_depend>hardware_interface</build_depend>
+  <build_depend>trajectory_msgs</build_depend>
+
+  <run_depend>controller_manager</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>hardware_interface</run_depend>
+  <run_depend>effort_controllers</run_depend>
+  <run_depend>trajectory_msgs</run_depend>
+  <!-- Very important for this kind of robot!! -->
+  <run_depend>diff_drive_controller</run_depend>
+
+  <export>
+  </export>
+</package>

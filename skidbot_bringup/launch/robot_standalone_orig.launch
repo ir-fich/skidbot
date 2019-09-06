@@ -1,0 +1,92 @@
+<launch>
+
+  <!-- <node name="arduino_node" pkg="skidbot_bringup" type="arduino_node.py">
+    <rosparam file="$(find skidbot_bringup)/param/board_config.yaml" command="load" />
+  </node> -->
+
+  <node pkg="rosserial_python" type="serial_node.py" name="rosserial" output="screen">
+    <param name="port" value="/dev/ttyACM0" />
+    <param name="baud" value="115200" />
+  </node>
+
+  <!-- <rosparam file="$(find skidbot_gazebo)/config/gazebo_ros_control_params.yaml" command="load"/> -->
+  <!-- <rosparam command="load" file="$(find skidbot_control)/config/control.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="skidbot_joint_publisher skidbot_joint_velocity_controller skidbot_velocity_controller" /> -->
+
+  <!-- <node name="my_robot_base_node"
+        pkg="skidbot_base"
+        type="my_robot_base_node"/> -->
+
+  <!-- <node name="lf_pid_velocity" pkg="skidbot_bringup" type="pid_velocity.py" output="screen">
+      <remap from="wheel" to="lf_wheel"/>
+      <remap from="motor_cmd" to="left_front_wheel_pwm"/>
+      <remap from="wheel_vtarget" to="lf_wheel_vtarget"/>
+      <remap from="wheel_vel" to="lf_wheel_vel"/>
+      <rosparam param="Kp">250</rosparam>
+      <rosparam param="Ki">100</rosparam>
+      <rosparam param="Kd">2</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">25</rosparam>
+      <rosparam param="timeout_ticks">2</rosparam>
+      <rosparam param="rolling_pts">3</rosparam>
+      <rosparam param="ticks_meter">4015.6</rosparam>
+  </node>
+
+  <node name="lr_pid_velocity" pkg="skidbot_bringup" type="pid_velocity.py" output="screen">
+      <remap from="wheel" to="lr_wheel"/>
+      <remap from="motor_cmd" to="left_rear_wheel_pwm"/>
+      <remap from="wheel_vtarget" to="lr_wheel_vtarget"/>
+      <remap from="wheel_vel" to="lr_wheel_vel"/>
+      <rosparam param="Kp">250</rosparam>
+      <rosparam param="Ki">100</rosparam>
+      <rosparam param="Kd">2</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">25</rosparam>
+      <rosparam param="timeout_ticks">2</rosparam>
+      <rosparam param="rolling_pts">3</rosparam>
+      <rosparam param="ticks_meter">4015.6</rosparam>
+  </node>
+
+  <node name="rf_pid_velocity" pkg="skidbot_bringup" type="pid_velocity.py" output="screen">
+      <remap from="wheel" to="rf_wheel"/>
+      <remap from="motor_cmd" to="right_front_wheel_pwm"/>
+      <remap from="wheel_vtarget" to="rf_wheel_vtarget"/>
+      <remap from="wheel_vel" to="rf_wheel_vel"/>
+      <rosparam param="Kp">250</rosparam>
+      <rosparam param="Ki">100</rosparam>
+      <rosparam param="Kd">2</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">25</rosparam>
+      <rosparam param="timeout_ticks">2</rosparam>
+      <rosparam param="rolling_pts">3</rosparam>
+      <rosparam param="ticks_meter">4015.6</rosparam>
+ </node>
+
+ <node name="rr_pid_velocity" pkg="skidbot_bringup" type="pid_velocity.py" output="screen">
+      <remap from="wheel" to="rr_wheel"/>
+      <remap from="motor_cmd" to="right_rear_wheel_pwm"/>
+      <remap from="wheel_vtarget" to="rr_wheel_vtarget"/>
+      <remap from="wheel_vel" to="rr_wheel_vel"/>
+      <rosparam param="Kp">250</rosparam>
+      <rosparam param="Ki">100</rosparam>
+      <rosparam param="Kd">2</rosparam>
+      <rosparam param="out_min">-255</rosparam>
+      <rosparam param="out_max">255</rosparam>
+      <rosparam param="rate">25</rosparam>
+      <rosparam param="timeout_ticks">2</rosparam>
+      <rosparam param="rolling_pts">3</rosparam>
+      <rosparam param="ticks_meter">4015.6</rosparam>
+</node>
+
+  <node pkg="skidbot_bringup" type="twist_to_motors.py" name="twist_to_motors" output="screen">
+      <rosparam param="base_width">0.29</rosparam>
+      <rosparam param="rate">25</rosparam>
+      <rosparam param="timeout_ticks">2</rosparam>
+  </node> -->
+  <!-- <node pkg="skidbot_bringup" type="diff_tf.py" name="diff_tf" output="screen"/> -->
+
+</launch>
