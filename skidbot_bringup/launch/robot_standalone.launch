@@ -1,8 +1,21 @@
 <launch>
 
+  <!-- Robot description -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find skidbot_description)/urdf/skidbot.xacro'" />
+
   <node pkg="rosserial_python" type="serial_node.py" name="rosserial" output="screen">
     <param name="port" value="/dev/ttyACM0" />
     <param name="baud" value="115200" />
   </node>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+  <node name="skidbot_base_node" pkg="skidbot_base" type="skidbot_base_node"/>
+
+  <!-- Load controller config -->
+  <rosparam command="load" file="$(find skidbot_control)/config/control.yaml" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" output="screen"
+    args="skidbot_joint_publisher skidbot_velocity_controller" />
 
 </launch>
