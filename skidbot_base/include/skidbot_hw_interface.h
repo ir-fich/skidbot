@@ -225,6 +225,7 @@ MyRobotHWInterface::MyRobotHWInterface()
     std::fill_n(vel, NUM_JOINTS, 0.0);
     std::fill_n(eff, NUM_JOINTS, 0.0);
     std::fill_n(cmd, NUM_JOINTS, 0.0);
+    std::fill_n(_wheel_angle, NUM_JOINTS, 0.0);
 
     ros::V_string joint_names = boost::assign::list_of("front_left_wheel")
       ("front_right_wheel")("rear_left_wheel")("rear_right_wheel");

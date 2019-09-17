@@ -18,7 +18,7 @@
   <xacro:property name="wheel_width" value="0.025" />
 
   <xacro:property name="chassis_length" value="0.40" />
-  <xacro:property name="chassis_width" value="0.27" />
+  <xacro:property name="chassis_width" value="0.29" />
   <xacro:property name="chassis_height" value="0.04" />
 
   <xacro:property name="dummy_inertia" value="1e-09"/>

@@ -14,20 +14,24 @@ skidbot_velocity_controller:
   left_wheel: ['front_left_wheel', 'rear_left_wheel']
   right_wheel: ['front_right_wheel', 'rear_right_wheel']
   publish_rate: 50
+
   pose_covariance_diagonal: [0.001, 0.001, 1000000.0, 1000000.0, 1000000.0, 0.03]
   twist_covariance_diagonal: [0.001, 0.001, 0.001, 1000000.0, 1000000.0, 0.03]
+
   cmd_vel_timeout: 0.25
   publish_cmd: True
 
+  wheel_separation: 0.29
+  wheel_radius: 0.0325
   k_l: 0.1
   k_r: 0.1
 
   # Odometry fused with IMU is published by robot_localization, so
   # no need to publish a TF based on encoders alone.
-  enable_odom_tf: False # later we will set this to false
+  enable_odom_tf: True # later we will set this to false
 
   # Wheel separation and radius multipliers
-  wheel_separation_multiplier: 1.0 # default: 1.0
+  wheel_separation_multiplier: 1.5 # default: 1.0
   wheel_radius_multiplier    : 1.0 # default: 1.0
 
   # Velocity and acceleration limits
